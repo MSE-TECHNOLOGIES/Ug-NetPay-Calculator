@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Net Pay Calculator by MSE-TECHNOLOGIES</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Uganda Net Pay Calculator</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <form id="salaryForm">
+                <div class="input-group">
+                    <label for="grossSalary">Gross Salary (UGX)</label>
+                    <input type="number" id="grossSalary" required min="0" step="1000" placeholder="Enter gross salary">
+                </div>
+
+                <div class="input-group">
+                    <label for="salaryPeriod">Salary Period | <span class="optional-text">Select Period</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="salaryPeriod" value="monthly" checked>
+                            Monthly
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="salaryPeriod" value="annual">
+                            Annual
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="nssfSelection">NSSF Contribution</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="nssfSelection" value="yes" checked>
+                            Yes
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="nssfSelection" value="no">
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group nssf-type" id="nssfTypeSection">
+                    <label for="nssfType">NSSF Type</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="nssfType" value="employee" checked>
+                            Employee (5%)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="nssfType" value="employer">
+                            Employer (10%)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="allowances-section">
+                    <h3>Allowances</h3>
+                    <div class="input-group">
+                        <label for="housingAllowance">Housing Allowance (UGX)</label>
+                        <input type="number" id="housingAllowance" min="0" step="1000" placeholder="Enter housing allowance">
+                    </div>
+                    <div class="input-group">
+                        <label for="transportAllowance">Transport Allowance (UGX)</label>
+                        <input type="number" id="transportAllowance" min="0" step="1000" placeholder="Enter transport allowance">
+                    </div>
+                    <div class="input-group">
+                        <label for="otherAllowance">Other Allowance (UGX)</label>
+                        <input type="number" id="otherAllowance" min="0" step="1000" placeholder="Enter other allowance">
+                    </div>
+                </div>
+            </form>
+
+            <div class="results" id="results">
+                <h2>Results</h2>
+                <div class="result-item">
+                    <span>PAYE:</span>
+                    <span id="paye">0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>NSSF (Employee):</span>
+                    <span id="nssfEmployee">0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>NSSF (Employer):</span>
+                    <span id="nssfEmployer">0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>Total Deductions:</span>
+                    <span id="totalDeductions">0.00</span>
+                </div>
+                <div class="result-item net-pay">
+                    <span>Net Pay:</span>
+                    <span id="netPay">0.00</span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Calculate</button>
+                    <button type="button" id="resetButton" class="btn btn-secondary">Reset</button>
+                </div>
+                <div class="export-section">
+                    <button id="exportPdf" class="export-btn">
+                        <i class="fas fa-file-pdf"></i> Export to PDF
+                    </button>
+                    <button id="exportWord" class="export-btn">
+                        <i class="fas fa-file-word"></i> Export to Word
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; MUWONGE STEVEN</p>
+            <p>A Student at BreakThrough Tech Academy Software Development Class 2025
+                <a href="https://wa.me/256703259270" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
